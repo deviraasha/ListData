@@ -1,40 +1,54 @@
 import React, { useRef, useEffect, useState } from "react";
-import {Link} from 'react-router-dom'
 
 const AccordionItem = (props) => {
   const contentEl = useRef();
   const { handleToggle, active, faq } = props;
-  const { name, id, description, image, origin, life_span, temperament, vcahospitals_url } = faq;
+  const {
+    name,
+    id,
+    description,
+    image,
+    origin,
+    life_span,
+    temperament,
+  } = faq;
 
-  console.log("image",vcahospitals_url );
+  //   console.log("image", vcahospitals_url);
   return (
     <div className="rc-accordion-card bg-white mb-5">
       <div className="rc-accordion-header">
-        <div
-          className={`rc-accordion-toggle p-3 ${active === id ? "active" : ""}`}
-          onClick={() => handleToggle(id)}
-        >
-          <div className="flex flex-row">
-            <img
-              src={
-                image === undefined
-                  ? "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
-                  : image.url
-              }
-              className="rounded w-32 h-20 mr-9"
-              alt="Avatar"
-            />
-            <div className="flex flex-col">
-              <div className="flex flex-row">
-                <span className="w-20 text-md font-semibold">Name</span>
-                <span className="w-4 text-md font-semibold">: </span>
-                <span className="">{name}</span>
+        <div className="max-w-md rounded-xl shadow-md overflow-hidden md:max-w-2xl">
+          <div
+            className={`rc-accordion-toggle p-3 ${
+              active === id ? "active" : ""
+            }`}
+            onClick={() => handleToggle(id)}
+          >
+            <div className="md:flex">
+              <div className="md:shrink-0">
+                <img
+                  className="h-48 w-full object-scale-down md:h-full md:w-48 rounded-xl"
+                  src={
+                    image === undefined
+                      ? "https://mdbcdn.b-cdn.net/img/new/avatars/2.webp"
+                      : image.url
+                  }
+                  alt="Modern building architecture"
+                />
               </div>
-
-              <div className="flex flex-row">
-                <span className="w-20 text-md font-semibold">Origin</span>
-                <span className="w-4 text-md font-semibold">: </span>
-                <span className="">{origin}</span>
+              <div className="p-8">
+                <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+                  {name}
+                </div>
+                <a
+                  href="#"
+                  className="block mt-1 text-lg leading-tight font-medium text-black hover:underline"
+                >
+                  {origin}
+                </a>
+                <p className="mt-2 text-slate-500">
+                 {description}
+                </p>
               </div>
             </div>
           </div>
@@ -49,6 +63,8 @@ const AccordionItem = (props) => {
             : { height: "0px" }
         }
       >
+        <div className="md:shrink-0 max-w-md">
+
         <div className="rc-accordion-body">
           <p className="mb-0 text-blue-600">{description}</p>
           <p>Can life for {life_span}</p>
@@ -77,6 +93,7 @@ const AccordionItem = (props) => {
           </button>
           </Link>
            */}
+        </div>
         </div>
       </div>
     </div>
