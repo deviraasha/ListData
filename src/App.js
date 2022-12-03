@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// import logo from './logo.svg';
+import "./App.css";
+// import Navbar from "./components/Navbar";
+import ListingPageContainer from "./components/ListPage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <>
+      {/* <Navbar /> */}
+      <header className="bg-white shadow">
+        <div className="mx-auto max-w-7xl py-6 px-4 sm:px-6 lg:px-8">
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+            List Data
+          </h1>
+        </div>
       </header>
-    </div>
+      <main>
+        <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 ">
+          <ListingPageContainer />
+        </div>
+      </main>
+    </>
   );
 }
 
